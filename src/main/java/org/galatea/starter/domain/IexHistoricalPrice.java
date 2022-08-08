@@ -1,4 +1,4 @@
-package org.galatea.starter.domain.rpsy;
+package org.galatea.starter.domain;
 
 import java.util.Date;
 import java.math.BigDecimal;
@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @Builder
 
-public class IexHistoricalPrices {
+public class IexHistoricalPrice {
     private String symbol;
     private BigDecimal close;
     private BigDecimal high;
@@ -17,17 +17,17 @@ public class IexHistoricalPrices {
     private Long volume;
     private Date date;
 
-    public IexHistoricalPrices() {
+    public IexHistoricalPrice() {
 
     }
 
-    public IexHistoricalPrices(String symbol,
-                               BigDecimal close,
-                               BigDecimal high,
-                               BigDecimal low,
-                               BigDecimal open,
-                               long volume,
-                               Date date) {
+    public IexHistoricalPrice(String symbol,
+                              BigDecimal close,
+                              BigDecimal high,
+                              BigDecimal low,
+                              BigDecimal open,
+                              long volume,
+                              Date date) {
         this.symbol = symbol;
         this.close = close;
         this.high = high;
@@ -37,7 +37,7 @@ public class IexHistoricalPrices {
         this.date = date;
     }
 
-    public IexHistoricalPrices(BigDecimal close,
+    public IexHistoricalPrice(BigDecimal close,
                                BigDecimal high,
                                BigDecimal low,
                                BigDecimal open,
