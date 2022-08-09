@@ -62,4 +62,7 @@ public class IexService {
     }
   }
 
+  public List<IexHistoricalPrice> getHistoricalPriceForSymbols(String symbol, String range) {
+    return Collections.emptyList();
+  }
 }
