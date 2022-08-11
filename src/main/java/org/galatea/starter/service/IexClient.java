@@ -37,10 +37,10 @@ public interface IexClient {
   /**
    * Get the historical prices for each stock symbol passed in. See https://iextrading.com/developer/docs/#historical?.
    *
-   * @param symbols stock symbols to get historical prices for.
+   * @param symbol stock symbols to get historical prices for.
    * @return a list of the historical prices for each of the symbols passed in.
    */
-  @GetMapping("/tops/last")
-  List<IexHistoricalPrice> getHistoricalPriceForSymbols(@RequestParam("symbols") String[] symbols);
+  @GetMapping("/stock/{symbol}/chart/{range}/{date}")
+  List<IexHistoricalPrice> getHistoricalPriceForSymbols(@RequestParam("symbols") String symbol, @RequestParam("range") String range, @RequestParam("date") String date);
 
 }

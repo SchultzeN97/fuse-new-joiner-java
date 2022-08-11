@@ -49,20 +49,18 @@ public class IexService {
   /**
    * Get the historical prices for each Symbol that is passed in.
    *
-   * @param symbols the list of symbols to get historical prices for.
+   * @param symbol the list of symbols to get historical prices for.
    * @return a list of historical prices objects for each Symbol that is passed in.
    */
 
 
-  public List<IexHistoricalPrice> getHistoricalPriceForSymbols(final List<String> symbols) {
-    if (CollectionUtils.isEmpty(symbols)) {
+
+  public List<IexHistoricalPrice> getHistoricalPriceForSymbols(String symbol, String range, String date) {
+    if (symbol.equals("")||range.equals("")||date.equals("")) {
       return Collections.emptyList();
     } else {
-      return iexClient.getHistoricalPriceForSymbols(symbols.toArray(new String[0]));
+      return iexClient.getHistoricalPriceForSymbols("", "", "");
     }
   }
 
-  public List<IexHistoricalPrice> getHistoricalPriceForSymbols(String symbol, String range) {
-    return Collections.emptyList();
-  }
 }
