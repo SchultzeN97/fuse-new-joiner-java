@@ -1,8 +1,7 @@
 package org.galatea.starter.entrypoint;
 
 import static org.hamcrest.Matchers.is;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.math.BigDecimal;
 import java.util.Collections;
@@ -81,4 +80,18 @@ public class IexRestControllerTest extends ASpringTest {
         .andExpect(jsonPath("$", is(Collections.emptyList())))
         .andReturn();
   }
+
+  @Test
+  public void testGetHistoricalPrice() throws Exception {
+
+    MvcResult result = (MvcResult) this.mvc.perform(
+            org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+                    .get("/iex/historicalPrice?date=20220729&range=1&symbol=IBM")
+                    .accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk())
+            .andExpect(jsonPath("$", is(Collections.emptyList())))
+            .andReturn();
+  }
+
+
 }
